@@ -1,3 +1,3 @@
-[submodule "lib/dep"]
-	path = lib/dep
-	url = https://github.com/itsashishupadhyay/object_detection_opencv_cpp.git
+[submodule "lib/object_detection_opencv_cpp"]
+	path = lib/object_detection_opencv_cpp
+	url = https://github.com/itsashishupadhyay/object_detection_opencv_cpp

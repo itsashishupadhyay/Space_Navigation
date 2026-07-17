@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "phase": "P0-complete",
+  "updated_utc": "2026-07-17T09:55:00Z",
+  "in_progress": null,
+  "dataset": {"train": null, "val": null, "holdout": null, "n_images": 154, "data_gb": 0.01,
+              "note": "154 sidecars (jupiter system + moon); tour-moon frames blocked on targeted CK download (P2)"},
+  "experiments": {"next_id": 0, "best": null},
+  "gates": {"G0": "pending", "G1": "pending", "G2": "pending", "G3": "pending", "G4": "pending", "G5": "pending"},
+  "blockers": [],
+  "needs_review": 1,
+  "next_actions": [
+    "P1: synthetic ellipse renderer + G0 harness in tests/synthetic (PSF sweep, SNR, crescents)",
+    "P1: implement parabola_grad + zernike + erf_fit localizers in src/limb",
+    "P1: RANSAC + fitEllipseDirect/AMS in src/fit; wire detection gate (ONNX, cv::dnn)",
+    "P1: validate sidecar pixel convention against real frames (clear PIXEL_CONVENTION_UNVALIDATED)",
+    "P2 prep: targeted CK downloads for Saturn-tour moon frames (per-image kernel selection)",
+    "P4 prep: librarian sweeps per research/literature/SEARCH_LOG.md"
+  ]
+}

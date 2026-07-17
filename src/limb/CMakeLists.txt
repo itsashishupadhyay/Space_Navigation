@@ -1,0 +1,2 @@
+add_library(limbnav_limb OBJECT limb.cpp)
+target_link_libraries(limbnav_limb PRIVATE limbnav_settings opencv_core opencv_imgproc)

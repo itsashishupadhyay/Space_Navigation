@@ -1,0 +1,2 @@
+add_library(limbnav_geometry OBJECT geometry.cpp)
+target_link_libraries(limbnav_geometry PRIVATE limbnav_settings)

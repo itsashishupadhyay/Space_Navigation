@@ -1,0 +1,2 @@
+add_library(limbnav_preprocess OBJECT preprocess.cpp)
+target_link_libraries(limbnav_preprocess PRIVATE limbnav_settings opencv_core opencv_imgproc)

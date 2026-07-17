@@ -68,3 +68,20 @@ vcpkg_installed/
 Testing/
 .cache/
 .DS_Store
+
+#AI Helpers
+CLAUDE.md
+
+# limbnav data — gitignored, < 10 GB budget (§4.5); manifests ARE committed (§9)
+data/*
+!data/manifests
+!data/manifests/**
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Review thumbnails stay local (queue text is committed)
+review/queue/*.png
+review/queue/*.jpg

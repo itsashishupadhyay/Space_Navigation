@@ -1,6 +1,6 @@
-[submodule "lib/autoresearch"]
-	path = lib/autoresearch
+[submodule "third_party/autoresearch"]
+	path = third_party/autoresearch
 	url = https://github.com/karpathy/autoresearch.git
-[submodule "lib/object_detection_opencv_cpp"]
-	path = lib/object_detection_opencv_cpp
+[submodule "third_party/object_detection_opencv_cpp"]
+	path = third_party/object_detection_opencv_cpp
 	url = https://github.com/itsashishupadhyay/object_detection_opencv_cpp.git

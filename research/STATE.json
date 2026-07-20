@@ -1,18 +1,35 @@
 {
   "schema": 1,
-  "phase": "P0-complete",
-  "updated_utc": "2026-07-17T09:55:00Z",
+  "phase": "P1",
+  "updated_utc": "2026-07-20T02:40:00Z",
   "in_progress": null,
-  "dataset": {"train": null, "val": null, "holdout": null, "n_images": 154, "data_gb": 0.01,
-              "note": "154 sidecars (jupiter system + moon); tour-moon frames blocked on targeted CK download (P2)"},
-  "experiments": {"next_id": 0, "best": null},
-  "gates": {"G0": "pending", "G1": "pending", "G2": "pending", "G3": "pending", "G4": "pending", "G5": "pending"},
-  "blockers": [],
+  "dataset": {
+    "train": null,
+    "val": null,
+    "holdout": null,
+    "n_images": 154,
+    "data_gb": 0.01,
+    "note": "154 sidecars (jupiter system + moon); tour-moon frames blocked on targeted CK download (P2)"
+  },
+  "experiments": {
+    "next_id": 0,
+    "best": null
+  },
+  "gates": {
+    "G0": "failing",
+    "G1": "pending",
+    "G2": "pending",
+    "G3": "pending",
+    "G4": "pending",
+    "G5": "pending"
+  },
+  "blockers": [
+    "G0 fails: mean|axis err| 0.165% (need <=0.05%), p99 1.30% (need <=0.2%). Root cause identified: moderate/high-phase (alpha>=60 deg) Lambert-crescent limb localization carries a systematic 0.3-2% bias. See DECK.md decision log for the full mechanism (pixel-aperture smoothing of the Lambert sqrt-profile's slope singularity, not reproducible by a pure-Gaussian 1D-radial blur model) and what was tried."
+  ],
   "needs_review": 1,
   "next_actions": [
-    "P1: synthetic ellipse renderer + G0 harness in tests/synthetic (PSF sweep, SNR, crescents)",
-    "P1: implement parabola_grad + zernike + erf_fit localizers in src/limb",
-    "P1: RANSAC + fitEllipseDirect/AMS in src/fit; wire detection gate (ONNX, cv::dnn)",
+    "P1 (blocking G0): design a limb-profile model that accounts for pixel-aperture (or 2D tangential) blur near the Lambert sqrt kink -- algorithm-architect task; see DECK.md for the diagnostic trail (diag_physics/diag_box scratch tools) so it isn't re-derived from scratch",
+    "P1: once G0 passes, wire the ONNX detection gate (cv::dnn) + Sun-hint plumbing into measure_limb/batch_eval for real-frame runs (today's real-Rhea-frame smoke test returned a nonsensical a_px=2193 on a 1024px image -- expected given no ROI seed / no sun hint yet, not a regression)",
     "P1: validate sidecar pixel convention against real frames (clear PIXEL_CONVENTION_UNVALIDATED)",
     "P2 prep: targeted CK downloads for Saturn-tour moon frames (per-image kernel selection)",
     "P4 prep: librarian sweeps per research/literature/SEARCH_LOG.md"

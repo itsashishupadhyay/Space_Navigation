@@ -41,6 +41,18 @@ struct InstrumentRecord {
   bool verified = false; // true only if the row parsed cleanly
 };
 
+// Per-image Sun hint for limb/terminator classification (§5.2). This is
+// flight-legitimate context (§6.2): direction the Sun projects to in the
+// image plane, plus the phase angle. When unavailable (or phase too small
+// for the direction to be meaningful) classification falls back to
+// gradient statistics + RANSAC alone.
+struct SunHint {
+  bool available = false;
+  double x = 0.0;         // image-plane unit vector, +x = +column
+  double y = 0.0;         // +y = +row
+  double phase_deg = 0.0;
+};
+
 // Fitted ellipse in (distortion-corrected) pixel coordinates.
 struct EllipseParams {
   double a_px = 0.0;   // semi-major

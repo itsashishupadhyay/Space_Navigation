@@ -68,6 +68,7 @@ vcpkg_installed/
 Testing/
 .cache/
 .DS_Store
+G0_report.csv
 
 #AI Helpers
 CLAUDE.md

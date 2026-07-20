@@ -1,0 +1,2 @@
+add_library(limbnav_measure OBJECT measure.cpp)
+target_link_libraries(limbnav_measure PRIVATE limbnav_settings opencv_core opencv_imgproc)
